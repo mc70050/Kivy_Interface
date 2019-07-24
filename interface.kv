@@ -1,0 +1,39 @@
+#:kivy 1.0.9
+
+<MainInterface>:
+    manager: screen_manager
+    size: root.size
+    pos: root.pos
+    orientation: 'horizontal'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.2
+        Button:
+            text: 'Hello World'
+            on_release: root.manager.current = 'func1'
+        Button:
+            text: 'Goodbye Now'
+            on_release: root.manager.current = 'func2'
+    Manager:
+        id: screen_manager
+        size_hint_x: 0.8
+
+<Manager>:
+    func1Screen: func1
+    func2Screen: func2
+
+    F1Screen:
+        id: func1
+        name: 'func1'
+
+    F2Screen:
+        id: func2
+        name: 'func2'
+
+<F1Screen>:
+    Label:
+        text: 'Hello World'
+
+<F2Screen>:
+    Label:
+        text: 'Goodbye Now'
